@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
-  has_many :users, through: :invitations
-  has_many :users, through: :user_events
+  has_one :user
+  has_one :attendance_list
+  has_many :invitations, through: :attendance_list
 end
