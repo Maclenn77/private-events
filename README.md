@@ -1,11 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Private-events is a website where users can invite other people to their parties. This project is based on Project: Associations of The Odin Project, and it was developed like part of Microverse's curriculum.
 
 * Ruby version
+
+- 2.7.0
 
 * System dependencies
 
