@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
-  skip_before_action :login_required, only: %i[new create]
+  # skip_before_action :login_required, only: %i[new create]
 
   def new
-    @session = Session.new
+    @user = User.new
   end
 
   def create

@@ -1,6 +1,6 @@
 <h2> Log In </h2>
 
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for(@user) do |f| %>
 <div class="form-inputs">
     <%= f.input :username,
                 required: true,
@@ -14,5 +14,3 @@
   <%= f.button :submit, "Log in" %>
 </div>
 <% end %>
-
-<%# session[:current_user.id] = user.id %>
