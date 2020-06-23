@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_action :login_required, only: %i[new create], raise: false
   include SessionsHelper
@@ -13,10 +15,10 @@ class SessionsController < ApplicationController
       flash.now[:danger] << 'Invalid name' unless params[:session][:name].split
       flash.now[:danger] << 'Name cannot be blank' if params[:session][:name].split.empty?
       render 'new'
-    end
-    log_in user
-    remember user
-    redirect_to root_path
+    else
+      log_in user
+      remember user
+      redirect_to root_path
     end
   end
 
