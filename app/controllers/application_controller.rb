@@ -13,14 +13,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
 
+  private
   # This method gives us details about our user
   def current_user
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-      @current_user
-    else
-      false
-    end
+    @_current_user ||= session[:current_user_id] &&
+     User.find_by(id: session[:current_user_id])
   end
 
   helper_method :current_user

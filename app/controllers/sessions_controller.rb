@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-     @session = Session.new(session_params)
+     user = User.find_by(username: )
 
     respond_to do |format|
       if @session.save
