@@ -1,34 +1,27 @@
 class SessionsController < ApplicationController
-  # skip_before_action :login_required, only: %i[new create]
+  skip_before_action :login_required, only: %i[new create], raise: false
+  include SessionsHelper
 
   def new
-    @user = User.new
+    redirect_to users_show_path unless current_user.nil?
   end
 
   def create
-     @session = Session.new(session_params)
-
-    respond_to do |format|
-      if @session.save
-        format.html { redirect_to root_path, notice: "Welcome, #{@current_user.username}"}
-      else
-        format.html { render :new }
-      end
+    user = User.find_by_name(params[:session][:name])
+    if user.nil?
+      flash[:danger] = []
+      flash.now[:danger] << 'Invalid name' unless params[:session][:name].split
+      flash.now[:danger] << 'Name cannot be blank' if params[:session][:name].split.empty?
+      render 'new'
+    end
+    log_in user
+    remember user
+    redirect_to root_path
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_path
-  end
-
-  private
-
-  def session_params
-    params.require(:session).permit(:username)
-  end
-
-  def login(user)
-    session[:user_id] = nil
+    log_out
+    redirect_to root_url
   end
 end
