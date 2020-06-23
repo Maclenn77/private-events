@@ -2,12 +2,10 @@
 
 <%= simple_form_for(@user) do |f| %>
 <div class="form-inputs">
-    <%= f.input :username,
+    <%= f.input :name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email"} %>
-    <%= f.input :id,
-                required: false %>
+                input_html: { autocomplete: "name"} %>
 </div>
 
 <div class="form-actions">
