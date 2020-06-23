@@ -1,12 +1,12 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
+class UsersController < ApplicationController
   def index
-    @users = User.user_list
-    @user = User.new
+    @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
+    redirect_to login_path if current_user.nil?
   end
 
   def new
@@ -15,26 +15,21 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User account was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if @user.save
+      log_in @user
+      remember @user
+      redirect_to root_path
+    else
+      respond_to do |f|
+        f.html { render :new }
+        f.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   def user_params
     params.require(:user).permit(:username)
   end
-
 end
