@@ -1,12 +1,14 @@
+<div class="d-flex justify-content-center flex-column">
+
 <%= simple_form_for(:session, url: login_path) do |f| %>
-<div class="form-inputs">
+  <div class="form-row justify-content-center">
     <%= f.input :name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "name"} %>
-</div>
-
-<div class="form-actions">
-  <%= f.button :submit, "Log in" %>
+                input_html: { autocomplete: "name"}%>
+  </div>
+<div class="form-actions justify-content-center">
+  <%= f.button :submit, "Log in", class: 'btn btn-primary mt-3' %>
 </div>
 <% end %>
+</div>
