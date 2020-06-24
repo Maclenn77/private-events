@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 2020_06_23_211513) do
 
   create_table "invitations", force: :cascade do |t|
     t.integer "guests_id"
-    t.integer "events_id"
+    t.integer "event_id"
     t.boolean "accepted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["events_id"], name: "index_invitations_on_events_id"
+    t.index ["event_id"], name: "index_invitations_on_event_id"
     t.index ["guests_id"], name: "index_invitations_on_guests_id"
   end
 
@@ -39,6 +39,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_211513) do
   end
 
   add_foreign_key "events", "users", column: "creator_id"
-  add_foreign_key "invitations", "events", column: "events_id"
+  add_foreign_key "invitations", "events"
   add_foreign_key "invitations", "users", column: "guests_id"
 end
