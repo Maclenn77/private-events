@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_211513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "events", "user", column: "creator_id"
+  add_foreign_key "events", "users", column: "creator_id"
   add_foreign_key "invitations", "events", column: "events_id"
   add_foreign_key "invitations", "user", column: "guests_id"
 end
