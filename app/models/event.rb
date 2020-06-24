@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :creator, class_name: 'User'
-  has_many :invitations
+  has_many :guests, through: :invitations
 
   scope :previous, -> { where('event_date < ?', Time.zone.now) }
   scope :future, -> { where('event_date >= ?', Time.zone.now) }
