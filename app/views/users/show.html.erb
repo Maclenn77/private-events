@@ -7,3 +7,7 @@
 <% end %>
 
 <h4> <%="Events attended by #{@user.name}:" %> </h4>
+
+<% @attending.each do |inv| %>
+  <%= Event.find_by(id: inv.event_id).description %>
+<% end %>
