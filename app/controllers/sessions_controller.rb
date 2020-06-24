@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   include SessionsHelper
 
   def new
-    redirect_to users_show_path unless current_user.nil?
+    redirect_to show_path unless current_user.nil?
   end
 
   def create
