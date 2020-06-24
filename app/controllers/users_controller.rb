@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     redirect_to login_path if current_user.nil?
     @user = User.find(params[:id])
     @events = Event.where(:creator_id => @user.id)
+    @attending = Event.where(:guests_id => @user.id)
   end
 
   def new

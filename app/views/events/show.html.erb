@@ -7,3 +7,7 @@
 <%= @event.description %>
 <h3>Date:</h3>
 <%= @event.date %>
+<h3>Attendee:</h3>
+<% @guests.each do |guest| %>
+  <p> <%= " * #{guest.name}" %> </p>
+<% end %>

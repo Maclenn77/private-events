@@ -5,3 +5,5 @@
 <% @events.each do |event| %>
   <p> <%= "#{event.description} in #{event.location} at #{event.date}" %> </p>
 <% end %>
+
+<h4> <%="Events attended by #{@user.name}:" %> </h4>
