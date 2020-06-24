@@ -1,3 +1,7 @@
 <h2> Users </h2>
 
-<p> <%= @user.name %> </p>
+<h4> <%="Events created by #{@user.name}:" %> </h4>
+
+<% @events.each do |event| %>
+  <p> <%= "#{event.description} in #{event.location} at #{event.date}" %> </p>
+<% end %>

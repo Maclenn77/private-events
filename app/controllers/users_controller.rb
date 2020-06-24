@@ -2,13 +2,15 @@
 
 class UsersController < ApplicationController
   include SessionsHelper
-  
+
   def index
     @users = User.all
   end
 
   def show
     redirect_to login_path if current_user.nil?
+    @user = User.find(params[:id])
+    @events = Event.where(:creator_id => @user.id)
   end
 
   def new
