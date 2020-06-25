@@ -18,7 +18,7 @@
     <ul class="nav navbar-nav">
       <li class="">
       <% if logged_in? %>
-      <%= link_to 'Log Out', logout_path, class: "btn btn-lg btn-outline-light " %>
+      <%= link_to 'Log Out', logout_path, method: :delete, class: "btn btn-lg btn-outline-light " %>
       <% else %>
        <%= link_to 'Log In', login_path, class: "btn btn-lg btn-outline-light " %>
       <% end %>
