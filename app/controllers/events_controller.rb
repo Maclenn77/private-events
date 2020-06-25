@@ -8,12 +8,13 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def index;
+  def index
     @events = Event.all
   end
 
   def create
     @event = current_user.events.build(event_params)
+    @event.creator_id = current_user.id
     @event.save
     redirect_to root_path
   end
@@ -21,6 +22,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @guests = @event.guests
+    @creator = User.find(@event.creator_id)
   end
 
   private

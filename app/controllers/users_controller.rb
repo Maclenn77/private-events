@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
   include SessionsHelper
 
@@ -10,8 +8,8 @@ class UsersController < ApplicationController
   def show
     redirect_to login_path if current_user.nil?
     @user = User.find(params[:id])
-    @events = Event.where(:creator_id => @user.id)
-    @attending = Invitation.where(:guests_id => @user.id)
+    @events = Event.where(creator_id: @user.id)
+    @attending = Invitation.where(guests_id: @user.id)
   end
 
   def new
