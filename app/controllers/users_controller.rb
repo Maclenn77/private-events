@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       @user = User.find(current_user.id)
       @events = Event.where(creator_id: @user.id)
       @invited_to = Invitation.where(guests_id: @user.id)
+      @future_events = get_future_events(@user.id)
+      @past_events = get_past_events(@user.id)
     end
   end
 
@@ -33,11 +35,23 @@ class UsersController < ApplicationController
     end
   end
 
-  
+
 
   private
 
   def user_params
     params.require(:user).permit(:name)
+  end
+
+  def get_future_events(user)
+    future_event = []
+    Event.future.each { |event| future_event << event if event.guests.ids.include? user }
+    future_event
+  end
+
+  def get_past_events(user)
+    past_event = []
+    Event.previous.each { |event| past_event << event if event.guests.ids.include? user }
+    past_event
   end
 end

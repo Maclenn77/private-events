@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_many :invitations
   has_many :events, through: :invitations
   validates :name, uniqueness: true
+
 end

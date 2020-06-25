@@ -10,15 +10,31 @@
 </div>
 <% end %>
 
-<h4> <%="Events that you were invited to: " %> </h4>
+<h4> <%="Previous events that you were invited to: " %> </h4>
 
-    <%  %></h5>
-
-<% @invited_to.each do |inv| %>
+<% @past_events.each do |inv| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-  <h5 class="card-title"><%= "* You were invited to an event in #{Event.find_by(id: inv.event_id).location } " %> </h5>
-  <p class="card-text"> <%= "at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}.  Will you go?" %></p>
+  <h5 class="card-title"><%= "* You were invited to an event in #{inv.location } " %> </h5>
+  <p class="card-text"> <%= "at #{inv.date.to_formatted_s(:rfc822)}.  Will you go?" %></p>
+    <div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="customSwitches">
+  <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
+</div>
+  </div>
+</div>
+
+  <!-- Default switch -->
+
+<% end %>
+
+<h4> <%="Future events that you were invited to: " %> </h4>
+
+<% @future_events.each do |inv| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= "* You were invited to an event in #{inv.location } " %> </h5>
+  <p class="card-text"> <%= "at #{inv.date.to_formatted_s(:rfc822)}.  Will you go?" %></p>
     <div class="custom-control custom-switch">
   <input type="checkbox" class="custom-control-input" id="customSwitches">
   <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
