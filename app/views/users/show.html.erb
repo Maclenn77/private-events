@@ -9,5 +9,5 @@
 <h4> <%="Events attended by #{@user.name}:" %> </h4>
 
 <% @attending.each do |inv| %>
-  <%= "#{@user.name} was invited to an event in #{Event.find_by(id: inv.event_id).location} at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}" %>
+  <p> <%= "* #{@user.name} was invited to an event in #{Event.find_by(id: inv.event_id).location} at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}" %> </p>
 <% end %>
