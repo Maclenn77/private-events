@@ -1,17 +1,28 @@
 <% if logged_in? %>
 
-<%= render 'sessions/login' %>
-
 <h4> <%="Events created by you: " %> </h4>
-
 <% @events.each do |event| %>
-  <p> <%= "#{event.description} in #{event.location} at #{event.date}" %> </p>
+<div class="card mb-2 " style="width: 18rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= "You created an event in #{event.location} " %> </h5>
+  <p class="card-text"> <%= "at #{event.date}." %></p>
+  </div>
+</div>
 <% end %>
 
 <h4> <%="Events that you were invited to: " %> </h4>
-<% %>
+
+    <%  %></h5>
+
 <% @invited_to.each do |inv| %>
-  <p> <%= "* You were invited to an event in #{Event.find_by(id: inv.event_id).location} at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}.  Will you go?" %> </p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= "* You were invited to an event in #{inv.address} " %> </h5>
+  <p class="card-text"> <%= "at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}.  Will you go?" %></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
   <!-- Default switch -->
 <div class="custom-control custom-switch">
   <input type="checkbox" class="custom-control-input" id="customSwitches">

@@ -1,5 +1,5 @@
 <% if logged_in? %>
-<p class="alert alert-primary">  <%= "Hi,  #{current_user.name}! You're looking mighty fine today!" %>
+<p class="alert alert-primary">  <%= "Hello,  #{current_user.name}! You're looking mighty fine today!" %>
   <%= link_to 'Log out', logout_path, method: :delete, class: "alert-link float-right", data: {confirm: 'Are you sure ?'} %>
 <% else %>
   <%= link_to 'Log in', login_path, class: "alert-link float-right", method: :get %>
