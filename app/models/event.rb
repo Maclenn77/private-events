@@ -3,8 +3,8 @@ class Event < ApplicationRecord
   has_many :invitations
   has_many :guests, through: :invitations
 
-  scope :previous, -> { where('event_date < ?', Time.zone.now) }
-  scope :future, -> { where('event_date >= ?', Time.zone.now) }
+  scope :previous, -> { where('date < ?', Time.zone.now) }
+  scope :future, -> { where('date >= ?', Time.zone.now) }
 
 
   validates :location, presence: true
