@@ -6,10 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to login_path if current_user.nil?
-    @user = User.find(params[:id])
-    @events = Event.where(creator_id: @user.id)
-    @attending = Invitation.where(guests_id: @user.id)
+    if current_user.nil?
+      redirect_to login_path
+    else
+      @user = User.find(current_user.id)
+      @events = Event.where(creator_id: @user.id)
+      @invited_to = Invitation.where(guests_id: @user.id)
+    end
   end
 
   def new

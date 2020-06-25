@@ -1,13 +1,21 @@
-<h2> Users </h2>
+<% if logged_in? %>
 
-<h4> <%="Events created by #{@user.name}:" %> </h4>
+<%= render 'sessions/login' %>
+
+<h4> <%="Events created by you: " %> </h4>
 
 <% @events.each do |event| %>
   <p> <%= "#{event.description} in #{event.location} at #{event.date}" %> </p>
 <% end %>
 
-<h4> <%="Events attended by #{@user.name}:" %> </h4>
-
-<% @attending.each do |inv| %>
-  <p> <%= "* #{@user.name} was invited to an event in #{Event.find_by(id: inv.event_id).location} at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}" %> </p>
+<h4> <%="Events that you were invited to: " %> </h4>
+<% %>
+<% @invited_to.each do |inv| %>
+  <p> <%= "* You were invited to an event in #{Event.find_by(id: inv.event_id).location} at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}.  Will you go?" %> </p>
+  <!-- Default switch -->
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="customSwitches">
+  <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
+</div>
 <% end %>
+<% end%>

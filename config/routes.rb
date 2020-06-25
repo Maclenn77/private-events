@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   get 'events/show/:id/', to: 'events#show', as: 'event_show'
 
 
-  root 'users#index'
+  root 'users#show'
 
 end

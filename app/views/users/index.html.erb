@@ -1,8 +1,0 @@
-<%= render 'created' %>
-
-<% if logged_in? %>
-<p>  <%= "Hi,  #{current_user.name} You're looking mighty fine today!" %> </p>
-  <%= link_to 'Log out', logout_path, method: :delete, data: {confirm: 'Are you sure ?'} %>
-<% else %>
-  <%= link_to 'Log in', login_path, method: :get %>
-<% end %>
