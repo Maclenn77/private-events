@@ -17,16 +17,16 @@
 <% @invited_to.each do |inv| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-  <h5 class="card-title"><%= "* You were invited to an event in #{inv.address} " %> </h5>
+  <h5 class="card-title"><%= "* You were invited to an event in #{Event.find_by(id: inv.event_id).location } " %> </h5>
   <p class="card-text"> <%= "at #{Event.find_by(id: inv.event_id).date.to_formatted_s(:rfc822)}.  Will you go?" %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="customSwitches">
+  <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
+</div>
   </div>
 </div>
 
   <!-- Default switch -->
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="customSwitches">
-  <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-</div>
+
 <% end %>
 <% end%>
