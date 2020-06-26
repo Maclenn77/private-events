@@ -5,8 +5,8 @@
 <% @past_events.each do |inv| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-  <h5 class="card-title"><%= "* You were invited to an event in #{inv.location } " %> </h5>
-  <p class="card-text"> <%= "at #{inv.date.to_formatted_s(:rfc822)}.  Did you go?" %></p>
+  <h5 class="card-title"><%= "#{@user.name} was invited to an event in #{inv.location } " %> </h5>
+  <p class="card-text"> <%= "Event date: #{inv.date.to_formatted_s(:rfc822)}." %></p>
   <%= link_to 'Check event', event_show_path(inv)  %>
   </div>
 </div>

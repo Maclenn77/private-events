@@ -1,16 +1,16 @@
 <% if logged_in? %>
 
-<h4> <%= "Events created by #{@user.name}" %> </h4>
+  <h4> Created events</h4>
 
-<%= render 'created' %>
+  <%= render 'created' %>
 
-<h4>Future events that you were invited to:</h4>
+  <h4>Future events:</h4>
 
-<%= render 'future' %>
+  <%= render 'future' %>
 
-<h4> Previous events that you were invited to:</h4>
+  <h4> Previous events:</h4>
 
-<%= render 'past' %>
+  <%= render 'past' %>
 
 <% end %>
 

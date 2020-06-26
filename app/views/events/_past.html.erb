@@ -1,23 +1,15 @@
+<div class="m-5">
 <% if Event.previous.nil? %>
   <%= "There's not previous events" %>
 <% else %>
 <% Event.previous.each do |inv| %>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title"><%= "* Event in #{inv.location } " %> </h5>
-      <p class="card-text"> <%= "at #{inv.date.to_formatted_s(:rfc822)}.  Will you go?" %></p>
-    <!-- <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="" <script>
-        $(function() {
-          $('#toggle-two').bootstrapToggle({
-            on: 'Enabled',
-            off: 'Disabled'
-          });
-        })
-      </script>>
-      <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-    </div> -->
+      <h5 class="card-title"><%= "Event in #{inv.location } " %> </h5>
+      <p class="card-text"> <%= "at #{inv.date.to_formatted_s(:rfc822)}." %></p>
+      <%= link_to 'View event', event_show_path(inv)  %>
   </div>
 </div>
 <% end %>
 <% end %>
+</div>
