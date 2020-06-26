@@ -1,5 +1,4 @@
 module UsersHelper
-
   def get_past_events(user)
     past_event = []
     Event.previous.each { |event| past_event << event if event.guests.ids.include? user }
@@ -13,7 +12,6 @@ module UsersHelper
   end
 
   def events_created_by(user)
-    events = Event.where(creator_id: user.id)
+    Event.where(creator_id: user.id)
   end
-
 end

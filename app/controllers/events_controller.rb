@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class EventsController < ApplicationController
   include SessionsHelper
   include EventsHelper
@@ -31,5 +29,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:location, :date, :description, :guest_list)
   end
-
 end
