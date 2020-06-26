@@ -1,8 +1,8 @@
 <div class="p-4">
-<% if @past_events.empty? %>
+<% if get_past_events(@user.id).empty? %>
   <%= "There's not previous events" %>
 <% else %>
-<% @past_events.each do |inv| %>
+<% get_past_events(@user.id).each do |inv| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
   <h5 class="card-title"><%= "#{@user.name} was invited to an event in #{inv.location } " %> </h5>
