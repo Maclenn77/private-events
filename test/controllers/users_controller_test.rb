@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class EventsControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'should get new' do
-    get events_url
+    get singup_path
     assert_response :success
   end
 end
