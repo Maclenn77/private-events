@@ -1,52 +1,19 @@
 <% if logged_in? %>
 
-<h4> <%="Events created by you: " %> </h4>
-<% @events.each do |event| %>
-<div class="card mb-2 " style="width: 18rem;">
-  <div class="card-body">
-  <h5 class="card-title"><%= "You created an event in #{event.location} " %> </h5>
-  <p class="card-text"> <%= "at #{event.date}." %></p>
-  </div>
-</div>
+<h4> <%= "Events created by #{@user.name}" %> </h4>
+
+<%= render 'created' %>
+
+<h4>Future events that you were invited to:</h4>
+
+<%= render 'future' %>
+
+<h4> Previous events that you were invited to:</h4>
+
+<%= render 'past' %>
+
 <% end %>
 
-<h4> <%="Previous events that you were invited to: " %> </h4>
 
-<% @past_events.each do |inv| %>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-  <h5 class="card-title"><%= "* You were invited to an event in #{inv.location } " %> </h5>
-  <p class="card-text"> <%= "at #{inv.date.to_formatted_s(:rfc822)}.  Did you go?" %></p>
-  <%= render 'attend_form', event: inv.id %>
-  </div>
-</div>
 
   <!-- Default switch -->
-
-<% end %>
-
-<h4> <%="Future events that you were invited to: " %> </h4>
-
-<% @future_events.each do |inv| %>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-  <h5 class="card-title"><%= "* You were invited to an event in #{inv.location } " %> </h5>
-  <p class="card-text"> <%= "at #{inv.date.to_formatted_s(:rfc822)}.  Will you go?" %></p>
-    <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="<% %>" <script>
-        $(function() {
-          $('#toggle-two').bootstrapToggle({
-            on: 'Enabled',
-            off: 'Disabled'
-          });
-        })
-      </script>>
-      <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-    </div>
-  </div>
-</div>
-
-  <!-- Default switch -->
-
-<% end %>
-<% end%>

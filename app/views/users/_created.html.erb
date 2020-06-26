@@ -1,6 +1,17 @@
-<% @users.each do | user | %>
-<div class="">
-<p class=""> <%= "User #{user.name} was created at #{user.created_at}" %> </p>
-</div>
+<div class="p-4">
 
+<% if @events.empty? %>
+  <%= "There's not events created by #{@user.name}" %>
+<% else %>
+<% @events.each do |event| %>
+<div class="card mb-2 " style="width: 18rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= "You created an event in #{event.location} " %> </h5>
+  <p class="card-text"> <%= "at #{event.date}." %></p>
+  <%= link_to 'View event', event_show_path(event)  %>
+  </div>
+</div>
 <% end %>
+<% end %>
+
+</div>

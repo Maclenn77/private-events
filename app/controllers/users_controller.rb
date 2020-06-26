@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  include SessionsHelper
+  include SessionsHelper, UsersHelper
 
   def index
     @users = User.all
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if current_user.nil?
       redirect_to login_path
     else
-      @user = User.find(current_user.id)
+      @user = User.find(params[:id])
       @events = Event.where(creator_id: @user.id)
       @invited_to = Invitation.where(guests_id: @user.id)
       @future_events = get_future_events(@user.id)
@@ -43,15 +43,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name)
   end
 
-  def get_future_events(user)
-    future_event = []
-    Event.future.each { |event| future_event << event if event.guests.ids.include? user }
-    future_event
-  end
 
-  def get_past_events(user)
-    past_event = []
-    Event.previous.each { |event| past_event << event if event.guests.ids.include? user }
-    past_event
-  end
 end

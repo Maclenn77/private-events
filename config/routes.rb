@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.input_html
   get 'sign_up', to: 'users#new'
-  get 'users/show/:id', to: 'users#show'
+  get 'users/show/:id', to: 'users#show', as: 'user_show'
 
   #Routes for sessions
   get 'login', to: 'sessions#new'
@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   get 'events/show/:id/', to: 'events#show', as: 'event_show'
 
 
-  root 'users#show'
+  root 'events#index'
 
 end
