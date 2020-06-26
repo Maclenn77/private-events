@@ -15,13 +15,24 @@ For creating events, you need to log in firts. Password is not required. If you 
 
 ## Screenshots
 
-### This screenshot shows the page when the user is logged out. You can see the events, but you can't create new ones.
+### Logged out. You can see the events, but you can't create new ones.
 
-![Page with user logged out]()
+![Page with user logged out](https://user-images.githubusercontent.com/1808402/85887693-e5273a80-b7ad-11ea-9af4-5c571cdf9df1.png)
 
-### In here you can see that the user can create new events an invite people. If the guest doesn't exist, the app creates a new user.
+### Log in page. If user doesn't exist, go to sign up for creating a new user.
 
-![Page with user logged in]()
+![Log in page](https://user-images.githubusercontent.com/1808402/85887919-3fc09680-b7ae-11ea-874f-ab2a4666f087.png)
+
+### Logged user. You can create new events and invite people to them!!!
+
+![Logged user](https://user-images.githubusercontent.com/1808402/85887926-418a5a00-b7ae-11ea-8d81-9cb8ae23363b.png)
+
+### User's show page. You can see events created by that user, future and past events.
+
+![User's show page](https://user-images.githubusercontent.com/1808402/85887930-43541d80-b7ae-11ea-9a6f-bd82fb504983.png)
+
+### Create new event. You can invite people. If the user doesn't exists, it creates a new one.
+![Create new event](https://user-images.githubusercontent.com/1808402/85887938-45b67780-b7ae-11ea-8f09-0ee1a08b98cd.png)
 
 ## Validations
 
