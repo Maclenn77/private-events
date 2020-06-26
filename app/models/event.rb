@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :creator, class_name: 'User'
-  has_many :invitations, :dependent => :destroy
+  has_many :invitations, dependent: :destroy
   has_many :guests, through: :invitations
 
   scope :previous, -> { where('date < ?', Time.zone.now) }
