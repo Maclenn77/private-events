@@ -1,9 +1,9 @@
 <div class="p-4">
 
-<% if @events.empty? %>
+<% if events_created_by(@user).empty? %>
   <%= "There's not events created by #{@user.name}" %>
 <% else %>
-<% @events.each do |event| %>
+<% events_created_by(@user).each do |event| %>
 <div class="card mb-2 " style="width: 18rem;">
   <div class="card-body">
   <h5 class="card-title"><%= "#{@user.name} created an event in #{event.location} " %> </h5>

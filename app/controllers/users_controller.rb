@@ -10,10 +10,6 @@ class UsersController < ApplicationController
       redirect_to login_path
     else
       @user = User.find(params[:id])
-      @events = Event.where(creator_id: @user.id)
-      @invited_to = Invitation.where(guests_id: @user.id)
-      @future_events = get_future_events(@user.id)
-      @past_events = get_past_events(@user.id)
     end
   end
 

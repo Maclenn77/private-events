@@ -12,4 +12,8 @@ module UsersHelper
     future_event
   end
 
+  def events_created_by(user)
+    events = Event.where(creator_id: user.id)
+  end
+
 end
