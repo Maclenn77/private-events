@@ -1,8 +1,8 @@
 <div class="p-4">
-<% if get_future_events(@user.id).empty? %>
+<% if @future_events.empty? %>
   <%= "There's not future events" %>
 <% else %>
-<% get_future_events(@user.id).each do |inv| %>
+<% @future_events.each do |inv| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
   <h5 class="card-title"><%= "#{@user.name} is invited to an event in #{inv.location } " %> </h5>
