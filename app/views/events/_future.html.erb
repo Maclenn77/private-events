@@ -1,6 +1,6 @@
 <div class="m-5">
 <% if @future_events.empty? %>
-  <%= "There's not previous events" %>
+  <%= "There're not future events" %>
   <%= link_to 'Create event', create_event_path %>
 <% else %>
 <% @future_events.each do |inv| %>

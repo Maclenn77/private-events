@@ -1,7 +1,12 @@
 <div class="p-4">
 
+<<<<<<< HEAD
 <% if @created_by_user.empty? %>
   <%= "There's not events created by #{@user.name}" %>
+=======
+<% if events_created_by(@user).empty? %>
+  <%= "There are no events created by #{@user.name}" %>
+>>>>>>> 28a058bdf7a23c1fbd8f4bfddca6f134637a5ebb
 <% else %>
 <% @created_by_user.each do |event| %>
 <div class="card mb-2 " style="width: 18rem;">
