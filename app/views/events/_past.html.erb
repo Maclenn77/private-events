@@ -1,6 +1,6 @@
 <div class="m-5">
 <% if Event.previous.nil? %>
-  <%= "There's not previous events" %>
+  <%= "There are no previous events recorded." %>
 <% else %>
 <% Event.previous.each do |inv| %>
   <div class="card" style="width: 18rem;">

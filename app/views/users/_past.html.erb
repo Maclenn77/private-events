@@ -1,6 +1,6 @@
 <div class="p-4">
 <% if get_past_events(@user.id).empty? %>
-  <%= "There's not previous events" %>
+  <%= "There are no previous events recorded" %>
 <% else %>
 <% get_past_events(@user.id).each do |inv| %>
 <div class="card" style="width: 18rem;">
