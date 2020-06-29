@@ -1,9 +1,9 @@
 <div class="m-5">
-<% if Event.future.nil? %>
+<% if @future_events.empty? %>
   <%= "There's not previous events" %>
   <%= link_to 'Create event', create_event_path %>
 <% else %>
-<% Event.future.each do |inv| %>
+<% @future_events.each do |inv| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
   <h5 class="card-title"><%= "Event in #{inv.location } " %> </h5>

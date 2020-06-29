@@ -1,8 +1,8 @@
 <div class="m-5">
-<% if Event.previous.nil? %>
+<% if @past_events.empty? %>
   <%= "There's not previous events" %>
 <% else %>
-<% Event.previous.each do |inv| %>
+<% @past_events.each do |inv| %>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"><%= "Event in #{inv.location } " %> </h5>
