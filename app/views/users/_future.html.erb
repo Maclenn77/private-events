@@ -1,11 +1,6 @@
 <div class="p-4">
-<<<<<<< HEAD
 <% if @future_events.empty? %>
-  <%= "There's not future events" %>
-=======
-<% if get_future_events(@user.id).empty? %>
-  <%= "There are no future events recorded." %>
->>>>>>> 28a058bdf7a23c1fbd8f4bfddca6f134637a5ebb
+  <%= "There're no future events" %>
 <% else %>
 <% @future_events.each do |inv| %>
 <div class="card" style="width: 18rem;">
