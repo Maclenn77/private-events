@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Event do
+  context 'after creating an event' do
+    event = Event.new
+
+    it 'should be invalid without parameters' do
+      expect(event).to_not be_valid
+    end
+  end
 end
