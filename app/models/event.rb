@@ -19,4 +19,8 @@ class Event < ApplicationRecord
     new_or_found_guests = guest_names.collect { |name| User.find_or_create_by(name: name) }
     self.guests = new_or_found_guests
   end
+
+  def self.creations(creator)
+    where(creator_id: creator.id)
+  end
 end

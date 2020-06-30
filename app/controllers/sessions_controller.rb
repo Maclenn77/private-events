@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_action :login_required, only: %i[new create], raise: false
-  include SessionsHelper
 
   def new
     redirect_to show_path unless current_user.nil?
