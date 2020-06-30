@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_name(params[:session][:name])
+    user = User.find_it_by_name(params[:session][:name])
     if user.nil?
       flash[:danger] = []
       flash.now[:danger] << 'Invalid name' unless params[:session][:name].split
