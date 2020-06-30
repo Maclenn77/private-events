@@ -11,5 +11,4 @@ class User < ApplicationRecord
   def self.find_creator(creator)
     find(creator)
   end
-
 end
