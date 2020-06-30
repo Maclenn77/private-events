@@ -1,7 +1,6 @@
 require 'rails_helper'
 RSpec.describe User do
-  context 'after creating a User' do
-
+  context 'after creating a User' dos
     it 'name should be unique' do
       @user = User.create(name: 'Tester')
       test_user = User.create(name: 'Tester')
