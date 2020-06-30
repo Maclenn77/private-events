@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :name, uniqueness: true
 
   def self.return_current_user(session)
-    find_by(id: session) if session
+    find_by(id: session)
   end
 
   def self.find_creator(creator)

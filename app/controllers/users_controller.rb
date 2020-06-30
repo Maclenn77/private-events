@@ -5,12 +5,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.nil?
-      redirect_to login_path
-    else
-      @user = User.find(params[:id])
-    end
-    @created_by_user = events_created_by(@user)
+    redirect_to root_path if current_user.nil?
+
+    @user = User.find(params[:id])
+    @created_by_user = Event.creations(@user)
     @past_events = get_past_events(@user)
     @future_events = get_future_events(@user)
   end
@@ -53,5 +51,9 @@ class UsersController < ApplicationController
 
   def events_created_by(user)
     Event.creations(user)
+  end
+
+  def current_user
+    @current_user ||= User.return_current_user(session[:user_id]) if session[:user_id]
   end
 end

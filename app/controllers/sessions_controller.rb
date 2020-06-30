@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :login_required, only: %i[new create], raise: false
 
   def new
-    redirect_to show_path unless current_user.nil?
+    redirect_to root_path unless current_user.nil?
   end
 
   def create

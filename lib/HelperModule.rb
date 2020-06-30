@@ -1,5 +1,5 @@
 module HelperModule
-   def logged_in?
+  def logged_in?
     !current_user.nil?
   end
 
@@ -12,7 +12,7 @@ module HelperModule
   end
 
   def current_user
-    @current_user ||= User.return_current_user(session[:user_id])
+    @current_user ||= User.return_current_user(session[:user_id]) if session[:user_id]
   end
 
   def log_out
