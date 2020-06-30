@@ -14,6 +14,7 @@ class Event < ApplicationRecord
     guests.collect(&:name).join(', ')
   end
 
+
   def guest_list=(guests_string)
     guest_names = guests_string.split(',').collect(&:strip).uniq
     new_or_found_guests = guest_names.collect { |name| User.find_or_create_by(name: name) }

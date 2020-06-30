@@ -7,8 +7,4 @@ class User < ApplicationRecord
   def self.return_current_user(session)
     find_by(id: session)
   end
-
-  def self.find_creator(creator)
-    find(creator)
-  end
 end

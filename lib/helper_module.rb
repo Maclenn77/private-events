@@ -21,6 +21,6 @@ module HelperModule
   end
 
   def creator(event)
-    User.find_creator(event.creator_id)
+    User.find_it(event.creator_id)
   end
 end
