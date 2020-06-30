@@ -7,5 +7,4 @@ RSpec.describe Event do
     it 'should be invalid without parameters' do
       expect(event).to_not be_valid
     end
-  end
 end

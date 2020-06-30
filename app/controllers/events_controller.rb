@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @guests = @event.guests
-    @creator = User.find(@event.creator_id)
+    @creator = User.find_creator(@event.creator_id)
   end
 
   private
