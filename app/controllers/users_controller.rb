@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include SessionsHelper
-  include UsersHelper
 
   def index
     @users = User.all
@@ -54,6 +52,6 @@ class UsersController < ApplicationController
   end
 
   def events_created_by(user)
-    Event.where(creator_id: user.id)
+    Event.creations(user)
   end
 end
