@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Events", type: :feature do
-  context "create new event" do
-    scenario "should be successful" do
+RSpec.feature 'Events', type: :feature do
+  context 'create new event' do
+    scenario 'should be successful' do
       user = User.create(name: 'Tester')
       visit login_path
       within('form') do
@@ -19,7 +19,7 @@ RSpec.feature "Events", type: :feature do
       expect(page).to have_content('Event in Heaven')
     end
 
-    scenario "should fail if not login" do
+    scenario 'should fail if not login' do
       visit create_event_path
       expect(page).to_not have_content('Create an event')
     end

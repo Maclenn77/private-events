@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
-  require 'HelperModule.rb'
+  require 'helper_module.rb'
   include HelperModule
 end

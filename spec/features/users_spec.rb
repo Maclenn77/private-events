@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
-  context "create new user" do
-    scenario "should be successful" do
+RSpec.feature 'Users', type: :feature do
+  context 'create new user' do
+    scenario 'should be successful' do
       visit sign_up_path
       within('form') do
         fill_in 'Add an username', with: 'Username'
@@ -11,7 +11,7 @@ RSpec.feature "Users", type: :feature do
       expect(page).to have_content('Hello, Username')
     end
 
-    scenario "should fail" do
+    scenario 'should fail' do
       User.create(name: 'Username')
       visit sign_up_path
       within('form') do
