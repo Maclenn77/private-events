@@ -43,6 +43,7 @@
           null,
           1,
           1,
+          1,
           null,
           null,
           null,
@@ -58,7 +59,7 @@
           null,
           null,
           null,
-          null,
+          2,
           null,
           null,
           null,
@@ -957,6 +958,15 @@
           null
         ]
       },
+      "/home/phfdonda/dev/microverse/private-events/spec/factories/users.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
       "/home/phfdonda/dev/microverse/private-events/config/routes.rb": {
         "lines": [
           1,
@@ -987,6 +997,15 @@
           1,
           1,
           0,
+          null
+        ]
+      },
+      "/home/phfdonda/dev/microverse/private-events/spec/support/factory_bot.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
           null
         ]
       },
@@ -1041,7 +1060,7 @@
           null,
           1,
           1,
-          1,
+          2,
           1,
           1,
           1,
@@ -1066,6 +1085,6 @@
         ]
       }
     },
-    "timestamp": 1593626053
+    "timestamp": 1593721658
   }
 }
