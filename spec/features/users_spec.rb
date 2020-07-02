@@ -1,7 +1,10 @@
 require 'rails_helper'
 
+
 RSpec.feature 'Users', type: :feature do
   context 'create new user' do
+    let(:user) { create(:random_user) }
+
     scenario 'should be successful' do
       visit sign_up_path
       within('form') do
@@ -19,6 +22,18 @@ RSpec.feature 'Users', type: :feature do
       end
       click_button 'Create User'
       expect(page).to have_content('Name has already been taken')
+    end
+
+    scenario 'should not show the user profile if guest not logged in' do
+      @user = user
+      visit user_path(id: 1)
+     expect(page).to have_content('Log In')
+    end
+
+    scenario 'should show the user profile if guest is logged in' do
+      session[:user_id] = user.id
+      visit user_path(id: 1)
+     expect(page).to have_content('Log In')
     end
   end
 end
