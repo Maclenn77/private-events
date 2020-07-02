@@ -1,7 +1,0 @@
-<h2>Users</h2>
-<% if logged_in? %>
-<p>  <%= "Hi,  #{current_user.name} You're looking mighty fine today!" %> </p>
-<%= render 'users' %>
-<% else %>
-  <%= link_to 'Log in', login_path, method: :get %>
-<% end %>

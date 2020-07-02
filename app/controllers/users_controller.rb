@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
 
   def show
     redirect_to root_path if current_user.nil?
