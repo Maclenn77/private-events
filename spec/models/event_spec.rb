@@ -10,7 +10,7 @@ RSpec.describe Event do
   end
 
   context 'scope tests' do
-    let (:params) { { location: 'Hell', description: 'Take the Highway', creator_id: 1 } }
+    let(:params) { { location: 'Hell', description: 'Take the Highway', creator_id: 1 } }
 
     it 'a future event shouldn\'t be present in previous events list' do
       User.new.save

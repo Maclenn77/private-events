@@ -54,6 +54,11 @@ For creating events, you need to log in firts. Password is not required. If you 
 - Bundle
 - SQLite3. **Note**: You can change the database in GemFile.
 
+#### For testing
+
+- Capybara
+- Rspec-Rails
+
 ### Installing
 
 1. Download this repository
@@ -70,7 +75,9 @@ For creating events, you need to log in firts. Password is not required. If you 
 
 ### Running the tests
 
-You can check specs into the folder 'tests'
+You can run tests with
+
+`$ rspec `
 
 ## Authors
 
