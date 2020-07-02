@@ -1,4 +1,4 @@
 module ApplicationHelper
-  require 'HelperModule.rb'
+  require 'helper_module.rb'
   include HelperModule
 end
