@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center flex-column">
-
+<%= render 'messages' %>
 <%= simple_form_for(:session, url: login_path) do |f| %>
   <div class="form-row justify-content-center">
     <%= f.input :name,

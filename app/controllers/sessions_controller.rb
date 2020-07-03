@@ -8,10 +8,11 @@ class SessionsController < ApplicationController
   def create
     user = User.find_it_by_name(params[:session][:name])
     if user.nil?
-      flash[:danger] = []
-      flash.now[:danger] << 'Invalid name' unless params[:session][:name].split
-      flash.now[:danger] << 'Name cannot be blank' if params[:session][:name].split.empty?
-      render 'new'
+      # flash[:danger] = []
+      # flash.now[:danger] << 'Invalid name' unless params[:session][:name].split
+      # flash.now[:danger] << 'Name cannot be blank' if params[:session][:name].split.empty?
+      redirect_to login_path, danger: 'Invalid name' unless params[:session][:name].split.empty?
+      redirect_to login_path, danger: 'Name cannot be blank' if params[:session][:name].split.empty?
     else
       log_in user
       remember user

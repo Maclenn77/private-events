@@ -24,4 +24,19 @@ RSpec.feature 'Events', type: :feature do
       expect(page).to_not have_content('Create an event')
     end
   end
+
+  context 'show an event' do
+    let(:user) { create(:random_user) }
+    let(:event) { create(:random_event) }
+
+    scenario 'show event info' do
+      visit login_path
+      within('form') do
+        fill_in 'Name', with: user.name
+      end
+      click_button 'Log in'
+      visit event_show_path(event.id)
+      expect(page).to have_content('Creator')
+    end
+  end
 end
