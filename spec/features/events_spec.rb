@@ -4,11 +4,7 @@ RSpec.feature 'Events', type: :feature do
   context 'create new event' do
     scenario 'should be successful' do
       user = User.create(name: 'Tester')
-      visit login_path
-      within('form') do
-        fill_in 'Name', with: user.name
-      end
-      click_button 'Log in'
+      login_user(user)
       visit create_event_path
       within('form') do
         fill_in 'Location', with: 'Heaven'
@@ -30,11 +26,7 @@ RSpec.feature 'Events', type: :feature do
     let(:event) { create(:random_event) }
 
     scenario 'show event info' do
-      visit login_path
-      within('form') do
-        fill_in 'Name', with: user.name
-      end
-      click_button 'Log in'
+      login_user(user)
       visit event_show_path(event.id)
       expect(page).to have_content('Creator')
     end

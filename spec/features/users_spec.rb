@@ -42,11 +42,7 @@ RSpec.feature 'Users', type: :feature do
 
     scenario 'should show the events created by the user' do
       # First login
-      visit login_path
-      within('form') do
-        fill_in 'Name', with: user.name
-      end
-      click_button 'Log in'
+      login_user(user)
       # User logged_in - test showing the events
       click_link("Hello, #{user.name}")
       expect(page).to have_content('Created events')
