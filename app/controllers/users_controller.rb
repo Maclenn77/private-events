@@ -45,10 +45,6 @@ class UsersController < ApplicationController
     future_event
   end
 
-  def events_created_by(user)
-    Event.creations(user)
-  end
-
   def current_user
     @current_user ||= User.return_current_user(session[:user_id]) if session[:user_id]
   end

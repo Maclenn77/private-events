@@ -8,9 +8,5 @@ RSpec.describe User do
       test_user.valid?
       expect(test_user.errors[:name]).to eql(['has already been taken'])
     end
-
-    it 'should return the current user' do
-      
-    end
   end
 end

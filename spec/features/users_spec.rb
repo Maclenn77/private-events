@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-
-
 RSpec.feature 'Users', type: :feature do
 
   context 'create new user' do
     let(:user) { create(:random_user) }
+    let(:events) { create_list(:random_event, 10) }
 
     scenario 'should be successful' do
       visit sign_up_path
@@ -33,10 +32,24 @@ RSpec.feature 'Users', type: :feature do
     end
 
     scenario 'should show the user profile if guest is logged in' do
-      # user = FactoryBot.create(:random_user)
-      current_user = user
-      visit user_path(id: 1)
+      visit login_path
+      within('form') do
+        fill_in 'Name', with: user.name
+      end
+      click_button 'Log in'
       expect(page).to have_content('Log Out')
+    end
+
+    scenario 'should show the events created by the user' do
+      # First login
+      visit login_path
+      within('form') do
+        fill_in 'Name', with: user.name
+      end
+      click_button 'Log in'
+      # User logged_in - test showing the events
+      click_link("Hello, #{user.name}")
+      expect(page).to have_content('Created events')
     end
   end
 end
