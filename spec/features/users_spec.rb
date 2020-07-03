@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 
+
 RSpec.feature 'Users', type: :feature do
+
   context 'create new user' do
     let(:user) { create(:random_user) }
 
@@ -27,13 +29,14 @@ RSpec.feature 'Users', type: :feature do
     scenario 'should not show the user profile if guest not logged in' do
       @user = user
       visit user_path(id: 1)
-     expect(page).to have_content('Log In')
+      expect(page).to have_content('Log In')
     end
 
     scenario 'should show the user profile if guest is logged in' do
-      session[:user_id] = user.id
+      # user = FactoryBot.create(:random_user)
+      current_user = user
       visit user_path(id: 1)
-     expect(page).to have_content('Log In')
+      expect(page).to have_content('Log Out')
     end
   end
 end
