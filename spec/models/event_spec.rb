@@ -10,20 +10,11 @@ RSpec.describe Event do
   end
 
   context 'scope tests' do
-    let(:params) { { location: 'Hell', description: 'Take the Highway', creator_id: 1 } }
-
+    let!(:user) { create(:random_user) }
+    let(:future_events) { create_list(:random_event, 3, date: '3000-06-30') }
     it 'a future event shouldn\'t be present in previous events list' do
-      User.new.save
-      events_list = []
-      3.times do
-        e = Event.new(params.merge(date: Time.now))
-        e.save
-        events_list << e
-      end
-      event = Event.new(params.merge(date: '3000-06-30'))
-      event.save
       previous_events = Event.previous
-      expect(previous_events).to_not include(event)
+      expect(previous_events).to_not include(future_events.last)
     end
   end
 end

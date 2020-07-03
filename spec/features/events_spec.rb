@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'Events', type: :feature do
   context 'create new event' do
+    let!(:user) { create(:random_user) }
     scenario 'should be successful' do
-      user = User.create(name: 'Tester')
       login_user(user)
       visit create_event_path
       within('form') do
@@ -22,7 +22,7 @@ RSpec.feature 'Events', type: :feature do
   end
 
   context 'show an event' do
-    let(:user) { create(:random_user) }
+    let!(:user) { create(:random_user) }
     let(:event) { create(:random_event) }
 
     scenario 'show event info' do
