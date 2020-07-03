@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Users', type: :feature do
   context 'create new user' do
-    let(:user) { create(:random_user) }
+    let!(:user) { create(:random_user) }
     let(:events) { create_list(:random_event, 10) }
 
     scenario 'should be successful' do
