@@ -31,6 +31,4 @@ RSpec.feature 'Events', type: :feature do
       expect(page).to have_content('Creator')
     end
   end
-
-  
 end
