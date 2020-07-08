@@ -1,9 +1,9 @@
 <div class="p-4">
 <% if @future_events.empty? %>
-  <%= "There're no future events" %>
+  <%= "There are no future events" %>
 <% else %>
 <% @future_events.each do |inv| %>
-  <%= render 'card', type: 'u', user: @user, event: inv %>
+  <%= render 'card', type: 'user', user: @user, event: inv %>
 <% end %>
 <% end %>
 </div>

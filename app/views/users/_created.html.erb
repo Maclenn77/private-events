@@ -1,17 +1,23 @@
 <div class="p-4">
-
-<% if @created_by_user.empty? %>
-  <%= "There're no events created by #{@user.name}" %>
-<% else %>
-<% @created_by_user.each do |event| %>
-<div class="card mb-2 " style="width: 18rem;">
-  <div class="card-body">
-  <h5 class="card-title"><%= "#{@user.name} created an event in #{event.location} " %> </h5>
-  <p class="card-text"> <%= "Event date: #{event.date}." %></p>
-  <%= link_to 'View event', event_show_path(event)  %>
-  </div>
-</div>
-<% end %>
-<% end %>
+  <h4>Created events that are still to happen: </h4>
+  <% @fut_created_events.each do |event| %>
+    <div class="card mb-2 " style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= phrase('user created', @user, event)[0] %> </h5>
+        <p class="card-text"> <%= phrase('user created', @user, event)[1] %></p>
+        <%= link_to 'View event', event_show_path(event)  %>
+      </div>
+    </div>
+  <% end %>
+  <h5>Created events that already happened: </h5>
+  <% @prev_created_events.each do |event| %>
+    <div class="card mb-2 " style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= phrase('user created', @user, event)[0] %> </h5>
+        <p class="card-text"> <%= phrase('user created', @user, event)[1] %></p>
+        <%= link_to 'View event', event_show_path(event)  %>
+      </div>
+    </div>
+  <% end %>
 
 </div>

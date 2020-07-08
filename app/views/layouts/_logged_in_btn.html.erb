@@ -1,0 +1,3 @@
+<h5> <%= link_to "Hello, #{current_user.name}", user_show_path(current_user), class: "text-light mr-3" %></h5>
+      <%= link_to 'New event', create_event_path, class: "btn btn-lg btn-outline-light mr-3 " %>
+      <%= link_to 'Log Out', logout_path, method: :delete, class: "btn btn-lg btn-outline-light" %>

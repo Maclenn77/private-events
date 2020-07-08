@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @created_by_user = Event.creations(@user)
     @past_events = get_past_events(@user)
     @future_events = get_future_events(@user)
+    @fut_created_events = Event.creations(@user).future
+    @prev_created_events = Event.creations(@user).previous
+
   end
 
   def new
