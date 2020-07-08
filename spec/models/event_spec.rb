@@ -18,7 +18,6 @@ RSpec.describe Event do
       @event = create(:random_event)
       expect(@event).to be_valid
     end
-
   end
 
   context 'scope tests' do

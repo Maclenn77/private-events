@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User do
-
   context 'after creating a User' do
     let(:user) { create(:random_user) }
 
@@ -12,8 +11,8 @@ RSpec.describe User do
     end
 
     it 'create a valid user' do
-        @user = user
-        expect(@user.id).to eql(1)
+      @user = user
+      expect(@user.id).to eql(1)
     end
   end
 end
