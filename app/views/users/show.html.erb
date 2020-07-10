@@ -1,0 +1,15 @@
+<% if @current_user %>
+
+  <h4> Created events</h4>
+
+  <%= render 'created' %>
+
+  <h4>Future events:</h4>
+
+  <%= render 'future' %>
+
+  <h4> Previous events:</h4>
+
+  <%= render 'past' %>
+
+<% end %>

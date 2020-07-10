@@ -1,0 +1,15 @@
+<h2>Event</h2>
+<h3>Creator:</h3>
+<%= link_to "#{creator(@event).name}", user_show_path(creator(@event)) %>
+<h3> Location: </h3>
+<%= @event.location %>
+<h3>Description:</h3>
+<%= @event.description %>
+<h3>Date:</h3>
+<%= @event.date %>
+<h3>Attendee:</h3>
+<ul>
+<% @guests.each do |guest| %>
+  <li> <%= link_to "#{guest.name}", user_show_path(guest)  %> </li>
+<% end %>
+</ul>

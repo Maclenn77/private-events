@@ -1,0 +1,16 @@
+<div class="m-5">
+<% if @future_events.empty? %>
+  <%= "There're not future events" %>
+  <%= link_to 'Create event', create_event_path %>
+<% else %>
+<% @future_events.each do |inv| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= "Event in #{inv.location } " %> </h5>
+  <p class="card-text"> <%= "Event date: #{inv.date.to_formatted_s(:rfc822)}."%></p>
+  <%= link_to 'View event', event_show_path(inv)  %>
+  </div>
+</div>
+<% end %>
+<% end %>
+</div>

@@ -4,12 +4,43 @@
     <title>PrivateEvents</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+  <nav class="navbar navbar-inverse navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Private Events', root_path, class: "navbar-brand btn btn-lg btn-outline-light" %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="d-inline-flex align-items-center ">
+
+      <% if logged_in? %>
+      <h5> <%= link_to "Hello, #{current_user.name}", user_show_path(current_user), class: "text-light mr-3" %></h5>
+      <%= link_to 'New event', create_event_path, class: "btn btn-lg btn-outline-light mr-3 " %>
+      <%= link_to 'Log Out', logout_path, method: :delete, class: "btn btn-lg btn-outline-light" %>
+      <% else %>
+       <%= link_to 'Sign up', sign_up_path, class: "btn btn-lg btn-outline-light mr-3" %>
+       <%= link_to 'Log In', login_path, class: "btn btn-lg btn-outline-light " %>
+      <% end %>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="col-8 justify-content-center">
+      <%= yield %>
+    </div>
+  </div>
+  <footer class="footer page-footer font-small pt-4">
+<div class="container-fluid text-center">
+  Created by P.H.F.Donda & J.P.Perez-Tejada
+</div>
+ </footer>
   </body>
 </html>

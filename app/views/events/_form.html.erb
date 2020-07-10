@@ -1,0 +1,7 @@
+<%= simple_form_for(@event) do |event| %>
+  <%= event.input :location, :placeholder => 'Where will your event be?' %>
+  <%= event.input :description, :placeholder => 'What\'s your event about?' %>
+  <%= event.input :date %>
+  <%= event.input :guest_list %>
+  <%= event.submit 'Create event' %>
+<% end %>
